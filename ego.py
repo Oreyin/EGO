@@ -49,10 +49,17 @@ def ego(data):
 	webbrowser.open("https://www.google.com/", new=0, autoraise=True)
 
    if "ego how smart are you" in data:
-	speak("Not very")
+	speak("I have the intelligence of a young meat person.")
 
    if "thanks" in data or "thanks ego" in data:
 	speak("You're welcome sir")
+
+   if "find me" in data or "ego find me"
+	data = data.split(" ")
+	search = data[2]
+	speak("Searching for " + location)
+	webbrowser.open("https://www.google.nl/maps/place/" + location + "/&amp;", new=0, autoraise=True)
+	
 
    if "where is" in data:
 	data = data.split(" ")
