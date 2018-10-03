@@ -54,11 +54,19 @@ def ego(data):
    if "thanks" in data or "thanks ego" in data:
 	speak("You're welcome sir")
 
-   if "find me" in data or "ego find me"
+   if "find me" in data or "look up" in data:
 	data = data.split(" ")
 	search = data[2]
-	speak("Searching for " + location)
-	webbrowser.open("https://www.google.nl/maps/place/" + location + "/&amp;", new=0, autoraise=True)
+	speak("Searching for " + search)
+	webbrowser.open("https://www.google.nl/maps/place/" + search + "/&amp;", new=0, autoraise=True)
+	
+   if "ego find me" or "ego look up" in data:
+	data = data.split(" ")
+	search = data[3]
+	speak("Searching for " + search)
+	webbrowser.open("https://www.google.nl/maps/place/" + search + "/&amp;", new=0, autoraise=True)
+
+   if "open notepad" in data or "ego open notepad" in data:
 	
 
    if "where is" in data:
