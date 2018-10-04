@@ -54,21 +54,39 @@ def ego(data):
    if "thanks" in data or "thanks ego" in data:
 	speak("You're welcome sir")
 
-   if "find me" in data or "look up" in data:
+   if "search" in data:
 	data = data.split(" ")
-	search = data[2]
+	
+	for i in enumerate(data, start = 1):
+	    search += data[i]
+
+	speak("Searching for " + search)
+	webbrowser.open("https://www.google.nl/maps/place/" + search + "/&amp;", new=0, autoraise=True)
+
+   if "find me" in data or "look up" in data or "ego search" in data:
+	data = data.split(" ")
+	
+	for i in enumerate(data, start = 2):
+	    search += data[i]
+
 	speak("Searching for " + search)
 	webbrowser.open("https://www.google.nl/maps/place/" + search + "/&amp;", new=0, autoraise=True)
 	
    if "ego find me" or "ego look up" in data:
 	data = data.split(" ")
-	search = data[3]
+
+	for i in enumerate(data, start = 3):
+	    search += data[i]
+
 	speak("Searching for " + search)
 	webbrowser.open("https://www.google.nl/maps/place/" + search + "/&amp;", new=0, autoraise=True)
 
    if "open notepad" in data or "ego open notepad" in data:
-	
-
+	if os.name == "Windows":
+	    notepad
+	else if os.name == "Ubuntu"
+	    gedit
+	    
    if "where is" in data:
 	data = data.split(" ")
 	location = data[2]
