@@ -4,6 +4,7 @@ import speech_recognition as sr
 from time import ctime
 import time
 import os
+import subprocess
 import webbrowser
 from gtts import gTTS
  
@@ -37,6 +38,8 @@ def recordAudio():
 def ego(data):
    if "how are you" in data:
 	speak("I am fine")
+   if "ego load steam" in data or "load steam" in data or "open steam" in data or "ego open steam" in data:
+	subprocess.call("steam")
 
    if "ego" in data:
 	speak("Yes Sir?")
@@ -57,7 +60,7 @@ def ego(data):
    if "search" in data:
 	data = data.split(" ")
 	
-	for i in enumerate(data, start = 1):
+	for i in enumerate(data, start = 1te):
 	    search += data[i]
 
 	speak("Searching for " + search)
@@ -83,13 +86,16 @@ def ego(data):
 
    if "open notepad" in data or "ego open notepad" in data:
 	if os.name == "Windows":
-	    notepad
+	    subprocess.call("notepad")
 	else if os.name == "Ubuntu"
-	    gedit
+	    subprocess.call("gedit")
 	    
    if "where is" in data:
 	data = data.split(" ")
-	location = data[2]
+
+	for i in enumerate(data, start = 3):
+	    location += data[i]
+
 	speak("Hold on, I will show you where " + location + " is.")
 	webbrowser.open("https://www.google.nl/maps/place/" + location + "/&amp;", new=0, autoraise=True)
  
